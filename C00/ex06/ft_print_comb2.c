@@ -1,50 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_print_comb2.c                                   :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ahumenyu <ahumenyu@student.42madrid.c      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/10 18:37:38 by ahumenyu          #+#    #+#             */
+/*   Updated: 2024/08/10 18:37:50 by ahumenyu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include <unistd.h>
 
-void ft_print_comb2(void)
+void	ft_putchar(char c)
 {
-    char    n1, n2, n3, n4;
-    
-    n1 = '0';
-    while (n1 <= '9')
-    {
-        n2 = '0';
-        while (n2 <= '9')
-        {
-            n3 = '0';
-            while (n3 <= '9')
-            {
-                n4 = '0';
-                while (n4 <= '9')
-                {
-                    if (n1 == '9' && n2 == '9' && n3 == '9' && n4 == '9')
-                    {
-                        write(1, &n1, 1);
-                        write(1, &n2, 1);
-                        write(1, " ", 1);
-                        write(1, &n3, 1);
-                        write(1, &n4, 1);
-                    }
-                    else
-                    {
-                        write(1, &n1, 1);
-                        write(1, &n2, 1);
-                        write(1, " ", 1);
-                        write(1, &n3, 1);
-                        write(1, &n4, 1);
-                        write(1, ", ", 2);
-                    }
-                    n4++;
-                }
-                n3++;
-            }
-            n2++;
-        }
-        n1++;
-    }
+	write(1, &c, 1);
 }
 
-int main()
+void	ft_print_comb2(void)
 {
-    ft_print_comb2();
-    return(0);
+	int	n1;
+	int	n2;
+
+	n1 = 0;
+	while (n1 <= 98)
+	{
+		n2 = n1 + 1;
+		while (n2 <= 99)
+		{
+			ft_putchar(n1 / 10 + '0');
+			ft_putchar(n1 % 10 + '0');
+			write(1, " ", 1);
+			ft_putchar(n2 / 10 + '0');
+			ft_putchar(n2 % 10 + '0');
+			if (n1 != 98 || n2 != 99)
+				write(1, ", ", 2);
+			n2++;
+		}
+		n1++;
+	}
+}
+
+int main() {
+   ft_print_comb2();
+   return (0);
 }

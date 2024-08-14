@@ -1,47 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_comb.c                                    :+:      :+:    :+:   */
+/*   ft_print_alphabet.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ahumenyu <ahumenyu@student.42madrid.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/10 18:01:13 by ahumenyu          #+#    #+#             */
-/*   Updated: 2024/08/10 18:01:16 by ahumenyu         ###   ########.fr       */
+/*   Created: 2024/08/08 20:49:40 by ahumenyu          #+#    #+#             */
+/*   Updated: 2024/08/08 21:39:50 by ahumenyu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 
-void	ft_print_comb(void)
+void	ft_print_alphabet(void)
 {
-	char	n1;
-	char	n2;
-	char	n3;
+	char	curr_letter;
 
-	n1 = '0';
-	while (n1 <= '7')
+	curr_letter = 'a';
+	while (curr_letter <= 'z')
 	{
-		n2 = n1 + 1;
-		while (n2 <= '8')
-		{
-			n3 = n2 + 1;
-			while (n3 <= '9')
-			{
-				write(1, &n1, 1);
-				write(1, &n2, 1);
-				write(1, &n3, 1);
-				if (n1 != '7' || n2 != '8' || n3 != '9')
-					write(1, ", ", 2);
-				n3++;
-			}
-			n2++;
-		}
-		n1++;
+		write(1, &curr_letter, 1);
+		curr_letter = curr_letter + 1;
 	}
 }
 
 int main()
-{
-	ft_print_comb();
+{	
+	ft_print_alphabet();
 	return(0);
 }
